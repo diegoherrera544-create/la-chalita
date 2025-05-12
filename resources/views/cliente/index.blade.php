@@ -78,7 +78,7 @@ function toggleZoom(id) {
 
 
         
-        <main>        
+                
             <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-yellow-600 text-center my-10 shadow-2xl">
                 Imagenes
             </h1>
@@ -125,5 +125,5 @@ function toggleZoom(id) {
                             </span>
                         </button>
                     </div>
-        </main>   
+       
 @endsection

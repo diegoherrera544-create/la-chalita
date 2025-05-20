@@ -3,9 +3,11 @@
 @section('contenido1')
 
 
-<h1 class="text-6xl sm:text-7xl md:text-8xl font-extrabold text-center my-8 mb-24 text-yellow-600 shadow-xl">
-    Galeria
+<h1 class="text-6xl sm:text-7xl md:text-8xl font-extrabold text-center my-8 mb-24 text-black shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
+    Galería
 </h1>
+
+
 
 <h2 class="text-3xl font-extrabold text-yellow-900 sm:text-4xl mt-24">El Arte del Cuero</h2>
                     <p class="mt-4 text-gray-600 text-lg">"Explora la robustez y la belleza natural del cuero crudo en cada una de mis creaciones artesanales.
@@ -56,9 +58,10 @@ function toggleZoom(id) {
 
 
         <section class="bg-gray-100 mt-24">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-yellow-600 shadow-xl">
-            Nosotros
-        </h1>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black text-left my-10 shadow-[0px_4px_6px_rgba(0,0,0,0.6)]">
+    Nosotros
+</h1>
+
             <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
                     <div class="max-w-lg">
@@ -75,55 +78,20 @@ function toggleZoom(id) {
                 </div>
             </div>
         </section>
-
-
-        
                 
-            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-yellow-600 text-center my-10 shadow-2xl">
-                Imagenes
-            </h1>
+        <section class="mt-24">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black text-center my-10 shadow-[0px_4px_6px_rgba(0,0,0,0.6)]">
+              Imagenes
+          </h1>
+            @include('carousel.carrusel') {{-- Aquí se muestra el carrusel --}}
+        </section>
 
-                    <div id="gallery" class="relative w-full" data-carousel="slide">
-                        <!-- Carousel wrapper -->
-                        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                            <!-- Item 1 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-                            </div>
-                            <!-- Item 2 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                                <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-                            </div>
-                            <!-- Item 3 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-                            </div>
-                            <!-- Item 4 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-                            </div>
-                            <!-- Item 5 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-                            </div>
-                        </div>
-                        <!-- Slider controls -->
-                        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                                </svg>
-                                <span class="sr-only">Previous</span>
-                            </span>
-                        </button>
-                        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                                </svg>
-                                <span class="sr-only">Next</span>
-                            </span>
-                        </button>
-                    </div>
-       
+        <section class="mt-24"> 
+          @include('servicios.servicio') {{-- Aquí se muestra los servicios --}}
+        </section>
+               
+        <section class="mt-24"> 
+          @include('productos.product') {{-- Aquí se muestra los productos en ventas --}}
+        </section>
+    
 @endsection

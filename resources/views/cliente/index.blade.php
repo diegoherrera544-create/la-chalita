@@ -91,7 +91,7 @@ function toggleZoom(id) {
         </section>
                
         <section class="mt-24"> 
-          @include('productos.product') {{-- Aquí se muestra los productos en ventas --}}
+          @include('productos.producto') {{-- Aquí se muestra los productos en ventas --}}
         </section>
     
 @endsection

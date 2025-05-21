@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Producto;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,10 @@ Route::get('/', function () {
     
 });
 
+Route::resource('productos', ProductoController::class);
+
+Route::get('/', function () { $productos = Producto::all(); return view('cliente.index', compact('productos'));
+});
 
 
 

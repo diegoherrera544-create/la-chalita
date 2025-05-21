@@ -11,13 +11,9 @@
         @forelse ($productos as $producto)
                 <div class="w-full max-w-xs bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
                     <a href="#">
-                        <img src="{{ asset('storage/' . $producto->imagen) }}"
-                            alt="{{ $producto->nombre }}"
-                            class="h-80 w-full object-cover rounded-t-xl" />
+                        <img src="{{ asset('storage/' . $producto->imagenes[0]) }}" alt="{{ $producto->nombre }}"
+                       class="object-cover">
                         <div class="px-4 py-3">
-                            <span class="text-gray-400 mr-3 uppercase text-xs">
-                                {{ $producto->marca ?? 'Marca' }}
-                            </span>
                             <p class="text-lg font-bold text-black truncate block capitalize">
                                 {{ $producto->nombre }}
                             </p>

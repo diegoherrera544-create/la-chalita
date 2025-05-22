@@ -3,41 +3,39 @@
 @section('contenido1')
 
 
-<h1 class="text-6xl sm:text-7xl md:text-8xl font-extrabold text-center my-8 mb-24 text-black shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
-    Galería
-</h1>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center my-8 mb-24 text-black shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
+        Galería
+    </h1>
 
-
-
-<h2 class="text-3xl font-extrabold text-yellow-900 sm:text-4xl mt-24">El Arte del Cuero</h2>
+    <h2 class="text-3xl font-extrabold text-yellow-900 sm:text-4xl mt-24">El Arte del Cuero</h2>
                     <p class="mt-4 text-gray-600 text-lg">"Explora la robustez y la belleza natural del cuero crudo en cada una de mis creaciones artesanales.
                         Desde la funcionalidad precisa de los cuchillos de hoja fuerte, pasando por la tradición y el carácter de los mates únicos,
                         hasta la resistencia y el estilo de los cinturones duraderos y los detalles rústicos de los elementos de decoración,
                         cada pieza es una manifestación de la nobleza del cuero sin curtir, trabajada con dedicación y respeto por el material."</p>
-    <div class="py-8 lg:py-16 px-4 md:px-12 mt-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="w-full cursor-pointer">
-                <img id="img1" src="https://images.unsplash.com/photo-1530035415911-95194de4ebcc?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    class="rounded-xl rotate-6 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
-                    alt="#_" onclick="toggleZoom('img1')">
-            </div>
-            <div class="w-full cursor-pointer">
-                <img id="img2" src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?q=80&amp;w=2672&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "
-                    class="rounded-xl -rotate-12 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
-                    alt="#_" onclick="toggleZoom('img2')">
-            </div>
-            <div class="w-full cursor-pointer">
-                <img id="img3" src="https://images.unsplash.com/photo-1586996292898-71f4036c4e07?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    class="rounded-xl rotate-6 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
-                    alt="#_" onclick="toggleZoom('img3')">
-            </div>
-            <div class="w-full cursor-pointer">
-                <img id="img4" src="https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&amp;w=2574&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    class="rounded-xl -rotate-12 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
-                    alt="#_" onclick="toggleZoom('img4')">
+        <div class="py-8 lg:py-16 px-4 md:px-12 mt-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="w-full cursor-pointer">
+                    <img id="img1" src="https://images.unsplash.com/photo-1530035415911-95194de4ebcc?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="rounded-xl rotate-6 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
+                        alt="#_" onclick="toggleZoom('img1')">
+                </div>
+                <div class="w-full cursor-pointer">
+                    <img id="img2" src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?q=80&amp;w=2672&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "
+                        class="rounded-xl -rotate-12 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
+                        alt="#_" onclick="toggleZoom('img2')">
+                </div>
+                <div class="w-full cursor-pointer">
+                    <img id="img3" src="https://images.unsplash.com/photo-1586996292898-71f4036c4e07?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="rounded-xl rotate-6 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
+                        alt="#_" onclick="toggleZoom('img3')">
+                </div>
+                <div class="w-full cursor-pointer">
+                    <img id="img4" src="https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&amp;w=2574&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="rounded-xl -rotate-12 hover:rotate-0 duration-300 w-full h-auto object-cover transform origin-bottom"
+                        alt="#_" onclick="toggleZoom('img4')">
+                </div>
             </div>
         </div>
-    </div>
 
 
 <style>

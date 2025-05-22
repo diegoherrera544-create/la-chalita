@@ -25,6 +25,7 @@ Route::resource('productos', ProductoController::class);
 Route::get('/', function () { $productos = Producto::all(); return view('cliente.index', compact('productos'));
 });
 
+Route::get('/contacto', function () { return view('contactos.contacto'); })->name('contacto');
 
 
 

@@ -3,7 +3,7 @@
 @section('contenido1')
 
 
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center my-8 mb-24 text-black shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
+    <h1 id="galeria" class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center my-8 mb-24 text-black shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
         Galería
     </h1>
 
@@ -55,10 +55,10 @@ function toggleZoom(id) {
 </script>
 
 
-        <section class="bg-gray-100 mt-24">
+        <section id="nosotros" class="bg-gray-100 mt-24">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black text-left my-10 shadow-[0px_4px_6px_rgba(0,0,0,0.6)]">
-    Nosotros
-</h1>
+            Nosotros
+        </h1>
 
             <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
@@ -77,19 +77,23 @@ function toggleZoom(id) {
             </div>
         </section>
                 
-        <section class="mt-24">
+        <section id="imagenes" class="mt-24">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black text-center my-10 shadow-[0px_4px_6px_rgba(0,0,0,0.6)]">
-              Imagenes
-          </h1>
-            @include('carousel.carrusel') {{-- Aquí se muestra el carrusel --}}
+                Imágenes
+            </h1>
+            @include('carousel.carrusel')  {{-- Aquí se muestra el carrusel de imágenes --}}
+        </section>
+
+        <section id="servicios" class="mt-24">
+            @include('servicios.servicio')  {{-- Aquí se muestra los servicios ofrecidos --}}
+        </section>
+               
+        <section id="productos" class="mt-24">
+            @include('productos.producto')  {{-- Aquí se muestra los productos en ventas --}}
         </section>
 
         <section class="mt-24"> 
-          @include('servicios.servicio') {{-- Aquí se muestra los servicios --}}
-        </section>
-               
-        <section class="mt-24"> 
-          @include('productos.producto') {{-- Aquí se muestra los productos en ventas --}}
+          @include('footer.piedepagina') {{-- Aquí se muestra los productos en ventas --}}
         </section>
     
 @endsection

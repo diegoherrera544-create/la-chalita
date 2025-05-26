@@ -1,0 +1,60 @@
+[33mcommit c1b8e91e0f9fb3e06831b96e2ca457042ca66b85[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: diego <diegoherrera544@gmail.com>
+Date:   Sat May 24 14:12:46 2025 -0300
+
+    se agrego contactos y footer
+
+[33mcommit b3f1cb37373294cd2ef7f0b0e631d690c68cbdcd[m
+Author: diego <diegoherrera544@gmail.com>
+Date:   Wed May 21 22:54:07 2025 -0300
+
+    se agrego contacto y carga de imagenes con estilo
+
+[33mcommit 6da00bcea4e7de4a3cc2cf0f1a3530cb97e9f969[m
+Author: Lucas Moreyra <lucasmoreyra1703@gmail.com>
+Date:   Wed May 21 19:31:36 2025 -0300
+
+    correcion imagen
+
+[33mcommit 018f71648819dfc354235dd3c2a4149fcdbc97b4[m
+Author: diego <diegoherrera544@gmail.com>
+Date:   Tue May 20 23:05:49 2025 -0300
+
+    tercer commit
+
+[33mcommit 89602f05b53b53d193038f03a7272f65b038f9c3[m
+Author: diego <diegoherrera544@gmail.com>
+Date:   Tue May 20 16:38:47 2025 -0300
+
+    segundo commit
+
+[33mcommit 141f5bcce8dd5aecd16cce65f1015d5246a342f4[m
+Merge: 16e9484 b199b48
+Author: Dieguito80 <106118501+Dieguito80@users.noreply.github.com>
+Date:   Mon May 12 19:01:16 2025 -0300
+
+    Merge branch 'main' of https://github.com/Dieguito80/chalita
+
+[33mcommit 16e9484117c5b5a821fc1daa3cb3ee41fd252a51[m
+Author: Dieguito80 <106118501+Dieguito80@users.noreply.github.com>
+Date:   Mon May 12 18:58:16 2025 -0300
+
+    cagada2
+
+[33mcommit 8b5743505949dd675f80a286e220e5191b2a0926[m
+Author: Dieguito80 <106118501+Dieguito80@users.noreply.github.com>
+Date:   Tue May 6 21:14:03 2025 -0300
+
+    cagada2
+
+[33mcommit b199b48d1e6179e254397a6aae65c613fe4da5ba[m
+Author: Dieguito80 <106118501+Dieguito80@users.noreply.github.com>
+Date:   Mon May 5 19:57:03 2025 -0300
+
+    chalita1
+
+[33mcommit 7bcf93b43351d241a198f63fee8d47a4da9a2363[m
+Author: Dieguito80 <106118501+Dieguito80@users.noreply.github.com>
+Date:   Mon May 5 19:54:43 2025 -0300
+
+    Initial commit

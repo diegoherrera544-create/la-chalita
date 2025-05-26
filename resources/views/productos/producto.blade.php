@@ -1,15 +1,24 @@
+<!-- TÍTULO -->
 <div class="text-center p-10">
     <h1 class="font-bold text-4xl mb-4">¡Ofertas Especiales en Venta!</h1>
     <h2 class="text-3xl text-gray-700">La Chalita Cuero - Exclusividad en Cada Producto</h2>
 </div>
 
+<!-- GALERÍA DE PRODUCTOS -->
 <section id="Projects"
-    class="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10 mb-5 px-4">
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 mb-10 max-w-7xl mx-auto">
 
     @forelse ($productos as $producto)
-        <div class="w-full max-w-xs bg-white shadow-lg rounded-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-            <a href="#">
-                <div class="w-full h-80 bg-gray-100">
+        <div class="bg-white shadow-lg rounded-2xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <a href="#" onclick="mostrarProducto(
+                '{{ asset('storage/' . ($producto->imagenes[0] ?? 'imagen-no-disponible.jpg')) }}',
+                `{{ $producto->nombre }}`,
+                `{{ $producto->descripcion ?? 'Sin descripción disponible' }}`,
+                `{{ number_format($producto->precio, 2) }}`
+            ); return false;">
+
+                <!-- Imagen -->
+                <div class="w-full h-64 sm:h-72 md:h-80 bg-gray-100">
                     @if ($producto->imagenes && count($producto->imagenes) > 0)
                         <img src="{{ asset('storage/' . $producto->imagenes[0]) }}"
                             alt="{{ $producto->nombre }}"
@@ -21,16 +30,15 @@
                     @endif
                 </div>
 
+                <!-- Información -->
                 <div class="px-4 py-4">
                     <p class="text-lg font-bold text-black truncate capitalize">
                         {{ $producto->nombre }}
                     </p>
-
                     <div class="flex items-center mt-2">
                         <p class="text-lg font-semibold text-green-600">
                             ${{ number_format($producto->precio, 2) }}
                         </p>
-
                         @if ($producto->precio_original)
                             <del class="ml-2 text-sm text-gray-500">
                                 ${{ number_format($producto->precio_original, 2) }}
@@ -53,5 +61,43 @@
     @empty
         <p class="col-span-full text-center text-gray-500">No hay productos en oferta por el momento.</p>
     @endforelse
-
 </section>
+
+<!-- MODAL DETALLE DEL PRODUCTO -->
+<div id="modalProducto" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-4">
+    <div onclick="cerrarModal()" class="absolute inset-0 cursor-pointer"></div>
+    <div class="bg-white lg:flex lg:max-w-6xl w-full relative z-10 rounded-xl overflow-hidden shadow-2xl">
+
+        <!-- Imagen -->
+        <div class="lg:w-1/2 h-64 lg:h-auto bg-cover bg-center" id="imagenProducto" style="background-image: url('')"></div>
+
+        <!-- Información -->
+        <div class="py-8 px-6 lg:px-10 lg:w-1/2 max-h-[90vh] overflow-y-auto">
+            <h2 id="nombreProducto" class="text-3xl font-bold text-gray-800"></h2>
+            <p id="descripcionProducto" class="mt-4 text-gray-600 leading-relaxed text-sm md:text-base"></p>
+            <p id="precioProducto" class="mt-6 text-2xl font-semibold text-green-600"></p>
+
+            <div class="mt-8">
+                <button onclick="cerrarModal()"
+                    class="bg-gray-900 text-white px-5 py-3 font-semibold rounded hover:bg-gray-700 transition">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+    function mostrarProducto(imagenUrl, nombre, descripcion, precio) {
+        document.getElementById('imagenProducto').style.backgroundImage = `url('${imagenUrl}')`;
+        document.getElementById('nombreProducto').textContent = nombre;
+        document.getElementById('descripcionProducto').textContent = descripcion;
+        document.getElementById('precioProducto').textContent = '$' + precio;
+        document.getElementById('modalProducto').classList.remove('hidden');
+    }
+
+    function cerrarModal() {
+        document.getElementById('modalProducto').classList.add('hidden');
+    }
+</script>

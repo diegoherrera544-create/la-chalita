@@ -10,9 +10,17 @@
 
 <section class="bg-gradient-to-r from-indigo-50 via-white to-indigo-50 min-h-screen py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 class="text-4xl font-extrabold text-indigo-900 mb-12 text-center drop-shadow-md">
-      🛍️ Listado de Productos
-    </h1>
+    
+     <!-- TÍTULO + BOTÓN MENSAJES -->
+    <div class="flex justify-between items-center mb-12">
+      <h1 class="text-4xl font-extrabold text-indigo-900 drop-shadow-md">
+        🛍️ Listado de Productos
+      </h1>
+      <a href="{{ route('mensajes') }}"
+         class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-300">
+        Mensajes
+      </a>
+    </div>
 
     @if(session('success'))
       <div class="max-w-3xl mx-auto bg-green-100 border border-green-300 text-green-800 px-6 py-4 rounded-lg mb-10 shadow-md text-center">

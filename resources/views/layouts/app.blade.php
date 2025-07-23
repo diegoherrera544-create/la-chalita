@@ -30,16 +30,11 @@
         <section class="bg-cover bg-center py-4 relative" style="background-image: url('{{ asset('img/fondo.jpg') }}');">
             <div class="absolute top-0 left-0 w-full px-6 py-3 flex items-center justify-end">
                 <nav class="flex items-center space-x-4 md:space-x-6">
-                    <a href="https://portfolio-ayyam.vercel.app/" class="text-white hover:text-gray-300 transition-colors duration-200">Inicio</a>
                     <a href="#galeria" class="text-white hover:text-gray-300 transition-colors duration-200">Galería</a>
                     <a href="#nosotros" class="text-white hover:text-gray-300 transition-colors duration-200">Nosotros</a>
-                    <a href="#imagenes" class="text-white hover:text-gray-300 transition-colors duration-200">Imágenes</a>
                     <a href="#servicios" class="text-white hover:text-gray-300 transition-colors duration-200">Servicios</a>
-                    <a href="#productos" class="text-white hover:text-gray-300 transition-colors duration-200">Productos</a>
+                    <a href="#productos" class="text-white hover:text-gray-300 transition-colors duration-200">Tienda</a>
 
-                    <button class="px-4 py-2 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 hover:from-gray-700 hover:via-gray-500 hover:to-gray-700 shadow-lg transition-all duration-300">
-                        Admin
-                    </button>
                     <a href="{{ route('contacto') }}" class="py-2 px-4 text-sm font-medium text-white rounded-lg border border-gray-600 bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 hover:opacity-80 hover:shadow-xl drop-shadow-lg transition-all duration-300">
                         Contacto
                     </a>

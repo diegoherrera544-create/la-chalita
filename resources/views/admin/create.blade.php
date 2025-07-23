@@ -76,6 +76,17 @@
               </td>
             </tr>
 
+            <tr class="border-b">
+              <td class="font-semibold py-3 pr-4 align-top">Carrusel:</td>
+              <td class="py-3">
+                <label class="inline-flex items-center">
+                  <input type="checkbox" name="en_carrusel" class="form-checkbox text-indigo-600"
+                    {{ old('en_carrusel', $producto->en_carrusel ?? false) ? 'checked' : '' }}>
+                  <span class="ml-2 text-sm text-gray-700">Mostrar en carrusel</span>
+                </label>
+              </td>
+            </tr>
+
             <tr>
               <td></td>
               <td class="py-6">

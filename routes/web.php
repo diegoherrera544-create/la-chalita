@@ -3,6 +3,7 @@
 use App\Models\Producto;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\MensajeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::get('/', function () { $productos = Producto::all(); return view('cliente
 });
 
 Route::get('/contacto', function () { return view('contactos.contacto'); })->name('contacto');
+Route::post('/contacto', [MensajeController::class, 'store'])->name('contacto.enviar');
+Route::get('/mensajes', [MensajeController::class, 'index'])->name('mensajes');
+Route::delete('/mensajes/{mensaje}', [MensajeController::class, 'destroy'])->name('mensajes.destroy');
 
 
 

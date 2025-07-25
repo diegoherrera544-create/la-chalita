@@ -103,43 +103,23 @@
 
             <!-- Carousel track -->
             <div class="carousel-track relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
-                <!-- Carousel items -->
-                <div class="carousel-item active absolute top-0 left-0 w-full h-full">
-                    <div class="w-full h-full p-4 sm:p-8">
-                        <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
-                            <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&q=80" alt="Geometric art installation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                            <div class="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay"></div>
-                            <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Digital Prism</h3>
+               @foreach ($productosCarrusel as $index => $producto)
+                    <div class="carousel-item {{ $index === 0 ? 'active' : ($index === 1 ? 'next' : 'hidden') }} absolute top-0 left-0 w-full h-full">
+                        <div class="w-full h-full p-4 sm:p-8">
+                            <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
+                                <img src="{{ asset('storage/' . $producto->imagenes[0]) }}"
+                                    alt="{{ $producto->nombre }}"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay"></div>
+                                <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                                    <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
+                                        {{ $producto->nombre }}
+                                    </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="carousel-item next absolute top-0 left-0 w-full h-full">
-                    <div class="w-full h-full p-4 sm:p-8">
-                        <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
-                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80" alt="Futuristic tech setup" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                            <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/40 to-pink-500/40 mix-blend-overlay"></div>
-                            <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Tech Haven</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item hidden absolute top-0 left-0 w-full h-full">
-                    <div class="w-full h-full p-4 sm:p-8">
-                        <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
-                            <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80" alt="Abstract digital art" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                            <div class="absolute inset-0 bg-gradient-to-br from-pink-500/40 to-rose-500/40 mix-blend-overlay"></div>
-                            <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Neural Dreams</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach
 
             <!-- Indicators -->
             <div class="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-2 z-20">

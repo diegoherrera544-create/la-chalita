@@ -51,6 +51,10 @@ class ProductoController extends Controller
         $producto->descripcion = $data['descripcion'];
         $producto->precio = $data['precio'];
         $producto->imagenes = $imagenes;
+
+        // ✅ Guardar estado del checkbox carrusel
+        $producto->en_carrusel = $request->has('en_carrusel');
+
         $producto->save();
 
         return redirect()->route('productos.index')->with('success', 'Producto creado correctamente.');
@@ -112,6 +116,7 @@ class ProductoController extends Controller
         }
 
         $producto->imagenes = array_values($imagenesActuales); // Reindexar array
+        $producto->en_carrusel = $request->has('en_carrusel');
         $producto->save();
 
         $mensaje = 'Producto actualizado correctamente.';

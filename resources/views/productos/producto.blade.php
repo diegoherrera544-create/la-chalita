@@ -8,7 +8,8 @@
 <section id="Projects"
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 mb-10 max-w-7xl mx-auto">
 
-    @forelse ($productos as $producto)
+    {{-- 🔽 Solo productos que NO están en el carrusel --}}
+    @forelse ($productos->where('en_carrusel', false) as $producto)
         <div class="bg-white shadow-lg rounded-2xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
             <a href="#" onclick="mostrarProducto(
                 '{{ asset('storage/' . ($producto->imagenes[0] ?? 'imagen-no-disponible.jpg')) }}',
@@ -62,6 +63,7 @@
         <p class="col-span-full text-center text-gray-500">No hay productos en oferta por el momento.</p>
     @endforelse
 </section>
+
 
 <!-- MODAL DETALLE DEL PRODUCTO -->
 <div id="modalProducto" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-4">

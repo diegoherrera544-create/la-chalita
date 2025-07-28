@@ -28,9 +28,9 @@ function toggleZoom(id) {
 
         <section class="w-full mx-auto py-10 bg-gray-50 dark:bg-gray-900 dark:text-white">
             <!-- Title -->
-            <div
-                class="w-fit pb-1 px-2 mx-4 rounded-md text-2xl font-semibold border-b-2 border-blue-600 dark:border-b-2 dark:border-yellow-600">
-                NOSOTROS</div>
+            <div id="nosotros" class="w-fit pb-1 px-2 mx-4 rounded-md text-2xl font-semibold border-b-2 border-blue-600 dark:border-b-2 dark:border-yellow-600">
+                NOSOTROS
+            </div>
 
             <div class="w-full h-full flex flex-col items-center md:py-4 py-10">
                 <!-- Col - 2 -->

@@ -16,15 +16,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('cliente.index');
     
-});
+}); */
 
 Route::resource('productos', ProductoController::class);
 
-Route::get('/', function () { $productos = Producto::all(); return view('cliente.index', compact('productos'));
-});
+/* Route::get('/', function () { $productos = Producto::all(); return view('cliente.index', compact('productos'));
+}); */
 
 Route::get('/contacto', function () { return view('contactos.contacto'); })->name('contacto');
 Route::post('/contacto', [MensajeController::class, 'store'])->name('contacto.enviar');

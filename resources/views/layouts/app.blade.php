@@ -30,6 +30,7 @@
         <section class="bg-cover bg-center py-4 relative" style="background-image: url('{{ asset('img/fondo.jpg') }}');">
             <div class="absolute top-0 left-0 w-full px-6 py-3 flex items-center justify-end">
                 <nav class="flex items-center space-x-4 md:space-x-6">
+                    <a href="#inicio" class="text-white hover:text-gray-300 transition-colors duration-200">Inicio</a>
                     <a href="#galeria" class="text-white hover:text-gray-300 transition-colors duration-200">Galería</a>
                     <a href="#nosotros" class="text-white hover:text-gray-300 transition-colors duration-200">Nosotros</a>
                     <a href="#servicios" class="text-white hover:text-gray-300 transition-colors duration-200">Servicios</a>

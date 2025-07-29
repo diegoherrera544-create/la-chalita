@@ -13,14 +13,27 @@
     
      <!-- TÍTULO + BOTÓN MENSAJES -->
     <div class="flex justify-between items-center mb-12">
-      <h1 class="text-4xl font-extrabold text-indigo-900 drop-shadow-md">
-        🛍️ Listado de Productos
-      </h1>
-      <a href="{{ route('mensajes') }}"
-         class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-300">
-        Mensajes
-      </a>
+        <h1 class="text-4xl font-extrabold text-indigo-900 drop-shadow-md">
+            🛍️ Listado de Productos
+        </h1>
+        
+        <div class="flex gap-4 items-center">
+            <a href="{{ route('mensajes') }}"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-300">
+                Mensajes
+            </a>
+
+            <form method="POST" action="{{ route('admin.logout') }}">
+                @csrf
+                <button type="submit"
+                        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-300">
+                    Cerrar sesión
+                </button>
+            </form>
+        </div>
     </div>
+
+    {{-- Mensaje de éxito --}}
 
     @if(session('success'))
       <div class="max-w-3xl mx-auto bg-green-100 border border-green-300 text-green-800 px-6 py-4 rounded-lg mb-10 shadow-md text-center">

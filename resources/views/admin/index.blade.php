@@ -11,36 +11,41 @@
 <section class="bg-gradient-to-r from-indigo-50 via-white to-indigo-50 min-h-screen py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-     <!-- TÍTULO + BOTÓN MENSAJES -->
+    <!-- TÍTULO + BOTONES -->
     <div class="flex justify-between items-center mb-12">
-        <h1 class="text-4xl font-extrabold text-indigo-900 drop-shadow-md">
-            🛍️ Listado de Productos
-        </h1>
-        
-        <div class="flex gap-4 items-center">
-            <a href="{{ route('mensajes') }}"
-              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-300">
-                Mensajes
-            </a>
+      <h1 class="text-4xl font-extrabold text-indigo-900 drop-shadow-md">
+        🛍️ Listado de Productos
+      </h1>
 
-            <form method="POST" action="{{ route('admin.logout') }}">
-                @csrf
-                <button type="submit"
-                        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-300">
-                    Cerrar sesión
-                </button>
-            </form>
-        </div>
+   <div class="flex gap-4 items-center">
+  <!-- Botón Mensajes -->
+  <a href="{{ route('mensajes') }}"
+     class="inline-flex items-center justify-center w-40 h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300">
+    Mensajes
+  </a>
+
+  <!-- Formulario de cierre de sesión (oculto) -->
+  <form id="logout-form" method="POST" action="{{ route('admin.logout') }}" class="hidden">
+    @csrf
+  </form>
+
+  <!-- Enlace que dispara el cierre de sesión -->
+  <a href="#"
+     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+     class="inline-flex items-center justify-center w-40 h-12 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl shadow-lg transition duration-300">
+    Cerrar sesión
+  </a>
+</div>
     </div>
 
     {{-- Mensaje de éxito --}}
-
     @if(session('success'))
       <div class="max-w-3xl mx-auto bg-green-100 border border-green-300 text-green-800 px-6 py-4 rounded-lg mb-10 shadow-md text-center">
         {{ session('success') }}
       </div>
     @endif
 
+    <!-- Botón Crear producto -->
     <div class="flex justify-end mb-6">
       <a href="{{ route('productos.create') }}"
          class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-300">
@@ -48,9 +53,10 @@
       </a>
     </div>
 
+    <!-- Tabla de productos -->
     <div class="overflow-x-auto">
       <table class="min-w-full bg-white border border-gray-200 rounded-xl shadow-lg">
-       <thead class="bg-indigo-100 text-indigo-800 text-sm uppercase font-semibold tracking-wide">
+        <thead class="bg-indigo-100 text-indigo-800 text-sm uppercase font-semibold tracking-wide">
           <tr>
             <th class="px-4 py-3 text-left">Imagen</th>
             <th class="px-4 py-3 text-left">Nombre</th>
@@ -76,9 +82,9 @@
               <td class="px-4 py-3 font-bold">{{ $producto->nombre }}</td>
               <td class="px-4 py-3 max-w-xs truncate">{{ $producto->descripcion }}</td>
               <td class="px-4 py-3 text-indigo-600 font-semibold">${{ number_format($producto->precio, 2) }}</td>
-              <td class="pr-2 py-3 text-right align-middle"> <!-- pr-2 reduce padding-right -->
+              <td class="pr-2 py-3 text-right">
                 <div class="flex flex-row justify-end items-center gap-2">
-                  <form action="{{ route('productos.edit', $producto) }}" method="GET">
+                  <form action="{{ route('productos.edit', $producto) }}" method="GET" class="inline">
                     <button type="submit"
                             class="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-sm flex items-center gap-1">
                       <i class="fas fa-edit text-sm"></i> Editar

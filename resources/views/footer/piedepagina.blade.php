@@ -10,7 +10,8 @@
     <script type="module" src="{{ asset('js/productosRender.js') }}"></script>
 
 <div class="text-center">
-    <a href="{{ url('/') }}" class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900">
+    <hr>
+    <a href="{{ url('/') }}" class="flex items-center justify-center py-5 mb-5 text-2xl font-semibold text-gray-900">
         <img src="{{ asset('img/logo.png') }}" class="h-12 mr-3 sm:h-9" alt="chalita Logo">
         La Chalita
     </a>

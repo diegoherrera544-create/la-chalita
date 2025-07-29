@@ -68,20 +68,23 @@
 <!-- MODAL DETALLE DEL PRODUCTO -->
 <div id="modalProducto" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-4">
     <div onclick="cerrarModal()" class="absolute inset-0 cursor-pointer"></div>
-    <div class="bg-white lg:flex lg:max-w-6xl w-full relative z-10 rounded-xl overflow-hidden shadow-2xl">
+    <div class="bg-white flex flex-col lg:flex-row max-w-4xl w-full relative z-10 rounded-xl overflow-hidden shadow-2xl">
 
         <!-- Imagen -->
-        <div class="lg:w-1/2 h-64 lg:h-auto bg-cover bg-center" id="imagenProducto" style="background-image: url('')"></div>
+        <div class="lg:w-1/2 flex items-center justify-center bg-gray-100">
+            <img id="imagenProducto" src="" alt="Producto"
+                class="max-h-[70vh] w-full sm:w-11/12 md:w-4/5 lg:w-[90%] object-contain p-4 rounded-xl transition-all duration-300" />
+        </div>
 
         <!-- Información -->
-        <div class="py-8 px-6 lg:px-10 lg:w-1/2 max-h-[90vh] overflow-y-auto">
-            <h2 id="nombreProducto" class="text-3xl font-bold text-gray-800"></h2>
+        <div class="py-6 px-4 sm:px-6 md:px-8 lg:px-10 lg:w-1/2 max-h-[90vh] overflow-y-auto">
+            <h2 id="nombreProducto" class="text-2xl md:text-3xl font-bold text-gray-800"></h2>
             <p id="descripcionProducto" class="mt-4 text-gray-600 leading-relaxed text-sm md:text-base"></p>
-            <p id="precioProducto" class="mt-6 text-2xl font-semibold text-green-600"></p>
+            <p id="precioProducto" class="mt-6 text-xl md:text-2xl font-semibold text-green-600"></p>
 
             <div class="mt-8">
                 <button onclick="cerrarModal()"
-                    class="bg-gray-900 text-white px-5 py-3 font-semibold rounded hover:bg-gray-700 transition">
+                    class="bg-gray-900 text-white px-5 py-3 font-semibold rounded hover:bg-gray-700 transition w-full sm:w-auto">
                     Cerrar
                 </button>
             </div>
@@ -92,7 +95,7 @@
 <!-- SCRIPT -->
 <script>
     function mostrarProducto(imagenUrl, nombre, descripcion, precio) {
-        document.getElementById('imagenProducto').style.backgroundImage = `url('${imagenUrl}')`;
+        document.getElementById('imagenProducto').src = imagenUrl;
         document.getElementById('nombreProducto').textContent = nombre;
         document.getElementById('descripcionProducto').textContent = descripcion;
         document.getElementById('precioProducto').textContent = '$' + precio;
@@ -103,3 +106,4 @@
         document.getElementById('modalProducto').classList.add('hidden');
     }
 </script>
+

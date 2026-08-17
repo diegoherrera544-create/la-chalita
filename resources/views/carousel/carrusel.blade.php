@@ -1,224 +1,177 @@
 <style>
-        .carousel-container {
-            perspective: 1000px;
-            touch-action: pan-y pinch-zoom;
-        }
+.carousel-container{perspective:1000px;touch-action:pan-y pinch-zoom}
+.carousel-item{backface-visibility:hidden;transition:opacity .5s ease,transform .5s ease}
+.carousel-item.active{opacity:1;transform:scale(1);z-index:10}
+.carousel-item.prev,.carousel-item.next,.carousel-item.hidden{opacity:0;transform:scale(.95);pointer-events:none}
+.nav-button{background:rgba(15,23,42,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);transition:.3s}
+.nav-button:hover{background:rgba(30,41,59,.95)}
+.carousel-image{transition:transform .6s ease}
+@media(hover:hover){.carousel-card:hover .carousel-image{transform:scale(1.025)}}
+.progress-bar{transition:width .5s ease}
+</style>
 
-        .carousel-track {
-            transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
+<section class="relative w-full py-6 sm:py-10 overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950">
+    <div class="absolute -top-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
-        .carousel-item {
-            backface-visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .carousel-item.active {
-            opacity: 1;
-            transform: scale(1) translateZ(0);
-        }
-
-        @media (max-width: 640px) {
-            .carousel-item.prev {
-                opacity: 0;
-                transform: scale(0.8) translateX(-50%) translateZ(-100px);
-            }
-
-            .carousel-item.next {
-                opacity: 0;
-                transform: scale(0.8) translateX(50%) translateZ(-100px);
-            }
-        }
-
-        @media (min-width: 641px) {
-            .carousel-item.prev {
-                opacity: 0.7;
-                transform: scale(0.9) translateX(-100%) translateZ(-100px);
-            }
-
-            .carousel-item.next {
-                opacity: 0.7;
-                transform: scale(0.9) translateX(100%) translateZ(-100px);
-            }
-        }
-
-        .carousel-item.hidden {
-            opacity: 0;
-            transform: scale(0.8) translateZ(-200px);
-        }
-
-        .nav-button {
-            transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        @media (hover: hover) {
-            .nav-button:hover {
-                background: rgba(255, 255, 255, 0.2);
-                transform: scale(1.1);
-            }
-        }
-
-        .nav-button:active {
-            transform: scale(0.95);
-        }
-
-        .progress-bar {
-            transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-    </style>
-</head>
-<body class="bg-black min-h-screen flex items-center justify-center overflow-hidden p-4 sm:p-8">
-    <!-- Background effects -->
-    <div class="fixed inset-0 -z-10">
-        <div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/20 to-fuchsia-900/20"></div>
-        <div class="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-violet-500/10 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-fuchsia-500/10 rounded-full filter blur-3xl"></div>
-    </div>
-
-    <!-- Main container -->
-    <div class="w-full max-w-6xl mx-auto">
-        <!-- Carousel container -->
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-3 sm:px-6">
         <div class="carousel-container relative">
-            <!-- Progress bar -->
-            <div class="absolute top-0 left-0 right-0 h-1 bg-white/10 rounded-full overflow-hidden z-20">
-                <div class="progress-bar absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+
+            <div class="absolute top-0 left-0 right-0 h-1 bg-white/10 rounded-full overflow-hidden z-30">
+                <div class="progress-bar h-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
             </div>
 
-            <!-- Navigation buttons -->
-            <button class="nav-button absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 text-white touch-manipulation" onclick="prevSlide()" title="Previous slide">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            
-            <button class="nav-button absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 text-white touch-manipulation" onclick="nextSlide()" title="Next slide">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
+            <button type="button"
+                class="nav-button absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-30 text-white"
+                onclick="prevSlide()">
+                ‹
             </button>
 
-            <!-- Carousel track -->
-            <div class="carousel-track relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
-               @foreach ($productosCarrusel as $index => $producto)
-                    <div class="carousel-item {{ $index === 0 ? 'active' : ($index === 1 ? 'next' : 'hidden') }} absolute top-0 left-0 w-full h-full">
-                        <div class="w-full h-full p-4 sm:p-8">
-                            <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
-                                <img src="{{ asset('storage/' . $producto->imagenes[0]) }}"
-                                    alt="{{ $producto->nombre }}"
-                                    class="absolute inset-0 w-full h-full object-center transition-transform duration-500 group-hover:scale-110" />
-                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay"></div>
-                                <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                    <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
+            <button type="button"
+                class="nav-button absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-30 text-white"
+                onclick="nextSlide()">
+                ›
+            </button>
+
+            <div class="carousel-track relative h-[280px] sm:h-[360px] md:h-[460px] lg:h-[520px] overflow-hidden rounded-2xl">
+
+                @forelse ($productosCarrusel as $index => $producto)
+
+                    <div class="carousel-item {{ $index === 0 ? 'active' : 'hidden' }} absolute inset-0 w-full h-full">
+
+                        <div class="w-full h-full p-2 sm:p-4">
+
+                            <div class="carousel-card relative w-full h-full rounded-2xl overflow-hidden bg-slate-950 border border-white/10 shadow-2xl">
+
+                                @if(isset($producto->imagenes) && count($producto->imagenes) > 0)
+
+                                    <img
+                                        src="{{ asset('storage/' . $producto->imagenes[0]) }}"
+                                        alt="{{ $producto->nombre }}"
+                                        class="carousel-image absolute inset-0 w-full h-full object-contain object-center"
+                                    />
+
+                                @else
+
+                                    <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+                                        Sin imagen disponible
+                                    </div>
+
+                                @endif
+
+                                <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+
+                                <div class="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+                                    <h3 class="text-white text-lg sm:text-2xl md:text-3xl font-bold">
                                         {{ $producto->nombre }}
                                     </h3>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
 
-            <!-- Indicators -->
-            <div class="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-2 z-20">
-                <button class="w-8 sm:w-12 h-1 sm:h-1.5 rounded-full bg-white/40 hover:bg-white/60 transition-colors" title="Go to slide 1"></button>
-                <button class="w-8 sm:w-12 h-1 sm:h-1.5 rounded-full bg-white/20 hover:bg-white/60 transition-colors" title="Go to slide 2"></button>
-                <button class="w-8 sm:w-12 h-1 sm:h-1.5 rounded-full bg-white/20 hover:bg-white/60 transition-colors" title="Go to slide 3"></button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                @empty
+
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-300">
+                        No hay productos para mostrar.
+                    </div>
+
+                @endforelse
+
             </div>
+
+            @if($productosCarrusel->count() > 1)
+                <div class="flex justify-center gap-2 mt-4">
+                    @foreach($productosCarrusel as $index => $producto)
+                        <button
+                            type="button"
+                            data-slide="{{ $index }}"
+                            class="carousel-indicator h-1.5 rounded-full transition-all duration-300 {{ $index === 0 ? 'w-10 bg-white/80' : 'w-5 bg-white/20' }}">
+                        </button>
+                    @endforeach
+                </div>
+            @endif
+
         </div>
     </div>
+</section>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-item');
-        const indicators = document.querySelectorAll('.bottom-2 button, .bottom-4 button');
-        const progressBar = document.querySelector('.progress-bar');
-        let autoAdvanceTimer;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const carousel = document.querySelector('.carousel-track');
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+    let currentSlide=0,timer,touchStartX=0,touchEndX=0;
+    const slides=document.querySelectorAll('.carousel-item');
+    const indicators=document.querySelectorAll('.carousel-indicator');
+    const progressBar=document.querySelector('.progress-bar');
+    const carousel=document.querySelector('.carousel-track');
 
-        // Add touch events for swipe
-        carousel.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        carousel.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
-            }
-        }
-
-        function updateSlides() {
-            slides.forEach((slide, index) => {
-                slide.className = 'carousel-item absolute top-0 left-0 w-full h-full';
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                } else if (index === (currentSlide + 1) % slides.length) {
-                    slide.classList.add('next');
-                } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
-                    slide.classList.add('prev');
-                } else {
-                    slide.classList.add('hidden');
-                }
-            });
-
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                indicator.className = `w-8 sm:w-12 h-1 sm:h-1.5 rounded-full transition-colors ${
-                    index === currentSlide ? 'bg-white/40' : 'bg-white/20'
-                } hover:bg-white/60`;
-            });
-
-            // Update progress bar
-            progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
-        }
-
-        function resetAutoAdvance() {
-            clearInterval(autoAdvanceTimer);
-            autoAdvanceTimer = setInterval(nextSlide, 5000);
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlides();
-            resetAutoAdvance();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlides();
-            resetAutoAdvance();
-        }
-
-        // Add click handlers to indicators
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentSlide = index;
-                updateSlides();
-                resetAutoAdvance();
-            });
+    function updateSlides(){
+        slides.forEach((slide,index)=>{
+            slide.classList.remove('active','prev','next','hidden');
+            if(index===currentSlide) slide.classList.add('active');
+            else if(index===(currentSlide+1)%slides.length) slide.classList.add('next');
+            else if(index===(currentSlide-1+slides.length)%slides.length) slide.classList.add('prev');
+            else slide.classList.add('hidden');
         });
 
-        // Initialize auto advance
-        resetAutoAdvance();
+        indicators.forEach((indicator,index)=>{
+            indicator.className=`carousel-indicator h-1.5 rounded-full transition-all duration-300 ${
+                index===currentSlide?'w-10 bg-white/80':'w-5 bg-white/20'
+            }`;
+        });
 
-        // Initialize slides
+        if(progressBar&&slides.length)
+            progressBar.style.width=`${((currentSlide+1)/slides.length)*100}%`;
+    }
+
+    function resetTimer(){
+        clearInterval(timer);
+        if(slides.length>1) timer=setInterval(()=>{
+            currentSlide=(currentSlide+1)%slides.length;
+            updateSlides();
+        },5000);
+    }
+
+    window.nextSlide=()=>{
+        if(slides.length<=1)return;
+        currentSlide=(currentSlide+1)%slides.length;
         updateSlides();
-    </script>
-</body>
-</html>
+        resetTimer();
+    };
+
+    window.prevSlide=()=>{
+        if(slides.length<=1)return;
+        currentSlide=(currentSlide-1+slides.length)%slides.length;
+        updateSlides();
+        resetTimer();
+    };
+
+    indicators.forEach((indicator,index)=>{
+        indicator.addEventListener('click',()=>{
+            currentSlide=index;
+            updateSlides();
+            resetTimer();
+        });
+    });
+
+    if(carousel){
+        carousel.addEventListener('touchstart',e=>{
+            touchStartX=e.changedTouches[0].screenX;
+        },{passive:true});
+
+        carousel.addEventListener('touchend',e=>{
+            touchEndX=e.changedTouches[0].screenX;
+            const diff=touchStartX-touchEndX;
+            if(Math.abs(diff)>50) diff>0?nextSlide():prevSlide();
+        },{passive:true});
+
+        carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+        carousel.addEventListener('mouseleave',resetTimer);
+    }
+
+    updateSlides();
+    resetTimer();
+});
+</script>

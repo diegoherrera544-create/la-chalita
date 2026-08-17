@@ -1,7 +1,7 @@
 <!-- TÍTULO -->
 <div class="text-center p-10">
-    <h1 class="font-bold text-4xl mb-4">¡Ofertas Especiales en Venta!</h1>
-    <h2 class="text-3xl text-gray-700">La Chalita Cuero - Exclusividad en Cada Producto</h2>
+    <h1 class="font-bold text-4xl mb-4">¡Nuestros trabajos!</h1>
+    <h2 class="text-3xl text-gray-700">La Chalita - Exclusividad en Cada Producto</h2>
 </div>
 
 <!-- GALERÍA DE PRODUCTOS -->

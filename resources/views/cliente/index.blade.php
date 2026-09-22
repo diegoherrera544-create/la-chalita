@@ -2,14 +2,22 @@
 
 @section('contenido1')
 
-    <section id="imagenes" class="mt-24">
-        <h1 id="galeria"
-            class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center my-10 mb-12 text-black shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
-            Galería
-        </h1>
+    <section id="imagenes" class="mt-0 pt-2">
 
-        @include('carousel.carrusel')  {{-- Aquí se muestra el carrusel de imágenes --}}
-    </section>
+    <h1 id="galeria"
+        class="text-4xl sm:text-5xl md:text-6xl
+               font-extrabold text-center
+               mt-2 mb-5
+               text-black
+               shadow-[0_8px_15px_rgba(0,0,0,0.7)]">
+
+        Galería
+
+    </h1>
+
+    @include('carousel.carrusel')
+
+</section>
 
 
     <style>

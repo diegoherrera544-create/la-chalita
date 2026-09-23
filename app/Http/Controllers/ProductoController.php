@@ -34,7 +34,7 @@ class ProductoController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric|min:0',
-            'imagenes.*' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'imagenes.*' => 'image|mimes:jpeg,png,jpg|max:20480',
         ]);
 
         $imagenes = [];
@@ -86,7 +86,7 @@ class ProductoController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric|min:0',
-            'imagenes.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagenes.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
         ]);
 
         $producto->nombre = $request->nombre;
